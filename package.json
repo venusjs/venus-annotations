@@ -8,7 +8,7 @@
     "url": "https://github.com/venusjs/venus-annotations.git"
   },
   "scripts": {
-    "test": "./node_modules/.bin/grunt"
+    "test": "./node_modules/.bin/grunt && cat ./coverage/unit/lcov.info|./node_modules/.bin/coveralls"
   },
   "bin": {
     "venus-annotations": "./bin/venus-annotations"

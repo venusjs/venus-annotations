@@ -24,9 +24,10 @@ module.exports = function(grunt) {
       unit: {
         src: 'test/unit',
         options: {
+          coverage: true,
           mask: '**/*.spec.js',
-          root: 'lib',
-          reportFormats: ['html'],
+          root: './lib',
+          reportFormats: ['lcov'],
           reporter : 'spec',
           coverageFolder : 'coverage/unit'
         }
@@ -64,4 +65,5 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['eslint', 'clean:unit', 'mocha_istanbul']);
   grunt.registerTask('test:integration', ['mochaTest']);
   grunt.registerTask('test:unit', ['mochaTest']);
+  grunt.registerTask('coveralls', ['mocha_istanbul:coveralls']);
 };
