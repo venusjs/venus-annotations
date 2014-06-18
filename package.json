@@ -15,7 +15,9 @@
   },
   "dependencies": {
     "esprima": "~1.2.2",
-    "concat-stream": "~1.4.6"
+    "concat-stream": "~1.4.6",
+    "coveralls": "~2.10.0",
+    "mocha-lcov-reporter": "0.0.1"
   },
   "devDependencies": {
     "grunt-cli": "~0.1.13",
