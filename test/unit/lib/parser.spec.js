@@ -17,7 +17,7 @@ describe('annotations', function () {
     });
 
     it('should parse venus-* prefixed', function () {
-      assert.deepEqual(output.includecode[0], ['absolute.js']);
+      assert.deepEqual(output.includeCode[0], ['absolute.js']);
     });
 
   });
@@ -29,20 +29,8 @@ describe('annotations', function () {
 
       assert.deepEqual(output, [
         { name: 'code', args: ['foobar.js'] },
-        { name: 'codeinclude', args: ['foo', 'biz', 'bar'] }
+        { name: 'codeInclude', args: ['foo', 'biz', 'bar'] }
       ]);
-    });
-
-    it('should treat annotation names as case insensitive by default', function () {
-      var input   = '//@vbaby foo.js hub\n//@vBABY bar.js';
-      var output  = annotations.parse(input);
-
-      assert.deepEqual(output, {
-        "vbaby": [
-          ['foo.js', 'hub'],
-          ['bar.js']
-        ]
-      });
     });
   });
 
@@ -62,7 +50,7 @@ describe('annotations', function () {
       var obj  = annotations.lineToObject(line);
 
       assert.deepEqual(obj, {
-        name: 'codefile',
+        name: 'codeFile',
         args: ['foo.js']
       });
     });
@@ -95,13 +83,13 @@ describe('annotations', function () {
     });
   });
 
-  describe('normalize', function () {
+  describe('camel', function () {
     it('should work on non-hyphenated string', function () {
-      assert.equal('includegroup', annotations.normalize('includeGroup'));
+      assert.equal('includeGroup', annotations.camel('includeGroup'));
     });
 
     it('should work on multi-hyphenated string', function () {
-      assert.equal('includegroupfun', annotations.normalize('include-group-fun'));
+      assert.equal('includeGroupFun', annotations.camel('include-group-fun'));
     });
   });
 });
